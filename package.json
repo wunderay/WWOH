@@ -1,0 +1,19 @@
+{
+  "name": "wwoh",
+  "version": "1.0.0",
+  "description": "What's the Weather Over Here. A website that tells the user the current weather in their location.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "npm i && nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raymond Wu",
+  "license": "ISC",
+  "dependencies": {
+    "@everapi/ipbase-js": "^1.0.8",
+    "axios": "^1.7.7",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
