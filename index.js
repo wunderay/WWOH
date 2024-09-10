@@ -23,7 +23,7 @@ app.get('/', async (req, res) => {
     let userIP = req.ip;
     if (userIP == "::1") {
         // if localhost set user's IP to a random location
-        userIP = "1.1.1.1";
+        userIP = "4.4.4.4";
     }
     try {
         const result = await ipBase.info({
@@ -52,9 +52,19 @@ app.get('/', async (req, res) => {
         const icon  = weather.data.weather[0].icon;
         const temp = weather.data.main.temp;
         const humidity = weather.data.main.humidity; 
-        const wind = weather.data.wind.speed;       
+        const windSpeed = weather.data.wind.speed;
+        let wind, temperature;
+        
+        if (units === "metric") {
+            wind =  (windSpeed * 3.6).toPrecision(3) + " KM/H";
+            temperature = temp = " ° C"; 
+        }
+        else {
+            wind =  windSpeed + " MPH";
+            temperature = temp + " ° F"; 
+        }       
 
-        res.render("index.ejs", {address, description, icon, units, temp, humidity, wind});
+        res.render("index.ejs", {address, description, icon, units, temperature, humidity, wind});
     } catch (error) {
         console.log(error);
         res.render("index.ejs", {error});
