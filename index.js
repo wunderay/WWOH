@@ -26,11 +26,11 @@ app.get('/', async (req, res) => {
         userIP = "4.4.4.4";
     }
     try {
+        console.log("Client IP Address: " + userIP)
         const result = await ipBase.info({
             ip: userIP
-        });
-
-        console.log("IP Location");
+        });        
+        console.log("IP Location: ");
         const location = result.data.location;
         console.log(location);
 
@@ -44,7 +44,7 @@ app.get('/', async (req, res) => {
                 units: units
             }
         });
-        console.log("Weather Call")
+        console.log("Weather Call: ")
         console.log(weather.data);
 
         const address = location.city.name + ", " + location.region.name + ", " + location.country.name;
