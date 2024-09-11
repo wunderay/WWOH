@@ -9,24 +9,35 @@
 <body>
     <main>
         <article class="forecast">
-            <div class="forecast__head">
-                <h1 class="forecast__head__location">
-                    Todays forcast in <%= locals.address %> is 
-                </h1>
-                <h2 class="forecast__head__description"><%= locals.description %></h2>
-                <img src="https://openweathermap.org/img/wn/<%= locals.icon %>@4x.png"/>
-            </div>
-            <div class="forecast__body">
-                <span class="humidity">
-                    Humidity: <%= locals.humidity %>%
-                </span>
-                <span class="temperature">
-                    <%= locals.temperature %> °
-                </span>
-                <span class="wind">
-                    Wind: <%= locals.wind %>
-                </span>
-            </div>
+            <% if (locals.error) { %>
+                <div class="error">
+                    <span class="error__intro">
+                        We've encountered an error while retrieving your forecast data. Please check again later.
+                    </span>
+                    <span class="error__message">
+                        <%= locals.error %>
+                    </span>
+                </div>
+             <% } else { %>
+                <div class="forecast__head">
+                    <h1 class="forecast__head__location">
+                        Todays forcast in <%= locals.address %> is 
+                    </h1>
+                    <h2 class="forecast__head__description"><%= locals.description %></h2>
+                    <img src="https://openweathermap.org/img/wn/<%= locals.icon %>@4x.png"/>
+                </div>
+                <div class="forecast__body">
+                    <span class="humidity">
+                        Humidity: <%= locals.humidity %>%
+                    </span>
+                    <span class="temperature">
+                        <%= locals.temperature %> °
+                    </span>
+                    <span class="wind">
+                        Wind: <%= locals.wind %>
+                    </span>
+                </div>
+            <% } %>
         </article>
     </main>
 </body>

@@ -28,3 +28,16 @@ body {
     display: flex;
     justify-content: space-evenly;
 }
+
+.error {
+    font-size: 30px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .error__message {
+        font-size: 20px;
+        color: red;
+    }
+}
