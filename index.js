@@ -30,9 +30,10 @@ app.get('/', async (req, res) => {
         const result = await ipBase.info({
             ip: userIP
         });        
-        console.log("IP Location: ");
         const location = result.data.location;
-        console.log(location);
+        const address = location.city.name + ", " + location.region.name + ", " + location.country.name;
+
+        console.log("Client City: " + address);
 
         const units = fahrenheitCountries.includes(location.country.name) ? "imperial" : "metric";
 
@@ -44,10 +45,7 @@ app.get('/', async (req, res) => {
                 units: units
             }
         });
-        console.log("Weather Call: ")
-        console.log(weather.data);
 
-        const address = location.city.name + ", " + location.region.name + ", " + location.country.name;
         const description = weather.data.weather[0].description;
         const icon  = weather.data.weather[0].icon;
         const temp = weather.data.main.temp;
@@ -62,7 +60,9 @@ app.get('/', async (req, res) => {
         else {
             wind =  windSpeed + " MPH";
             temperature = temp + " ° F"; 
-        }       
+        }
+        
+        console.log(`Forecast is: ${description} ${temperature} Humidity: ${humidity} ${wind}`);
 
         res.render("index.ejs", {address, description, icon, units, temperature, humidity, wind});
     } catch (error) {
