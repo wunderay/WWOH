@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/index.css">
     <title>What's the Weather Over Here</title>
 </head>
 <body>
@@ -16,11 +17,11 @@
                 <img src="https://openweathermap.org/img/wn/<%= locals.icon %>@4x.png"/>
             </div>
             <div class="forecast__body">
-                <span class="temperature">
-                    <%= locals.temperature %> °
-                </span>
                 <span class="humidity">
                     Humidity: <%= locals.humidity %>%
+                </span>
+                <span class="temperature">
+                    <%= locals.temperature %> °
                 </span>
                 <span class="wind">
                     Wind: <%= locals.wind %>

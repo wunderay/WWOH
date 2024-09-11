@@ -1,0 +1,30 @@
+body {
+    background-color: deepskyblue;
+    color: whitesmoke;
+}
+
+.forecast {
+    margin: auto;
+    margin-top: 10vh;
+    text-align: center;
+    width: 600px;
+    background-color: #2884FC;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.forecast__head__location {
+    margin-top: 0;
+}
+
+.forecast__head__description {
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.forecast__body {
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-evenly;
+}
